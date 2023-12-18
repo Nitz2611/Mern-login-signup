@@ -8,6 +8,8 @@ import Home from './Home';
 
 function App() {
   return (
+    //browserRouter provides route to given path 
+    //means it will not load screen and directly go to the page
    <BrowserRouter>
     <Routes>
       <Route path='/register' element={<Signup />}></Route>

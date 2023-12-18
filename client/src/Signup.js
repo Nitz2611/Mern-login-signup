@@ -5,11 +5,14 @@ import { useNavigate } from "react-router-dom";
 
 function Signup() {
 
+    //setting variables
     const[name, setName] = useState()
     const[email, setEmail] = useState()
     const[password, setPassword] = useState()
     const navigate = useNavigate()
 
+
+    //submit handling function
     const handleSubmit = (e) => {
         e.preventDefault()
         axios.post('http://localhost:3001/register',{name, email, password})
@@ -33,7 +36,8 @@ function Signup() {
                     autoComplete="off" 
                     name="email" 
                     className="form-control rounded-0"
-                    onChange={(e) => setName(e.target.value)} />
+                    onChange={(e) => setName(e.target.value)} /> 
+                    {/* here onChange event sets name when we submit */}
                 </div>
                 <div className="mb-3">
                     <label htmlFor="email">
