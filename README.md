@@ -1,31 +1,36 @@
-MERN Stack Login and Signup Project
-This repository contains a simple login and signup project built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. The project allows users to register, log in, and access protected routes.
+# MERN Stack Login and Signup Project
 
-Features
-User Registration: Users can sign up for an account by providing their email and password.
+This is a simple login and signup project built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. The project allows users to create accounts, log in, and access protected resources.
 
-User Authentication: Secure authentication using JSON Web Tokens (JWT) to protect routes and ensure user identity.
+## Features
 
-Password Encryption: User passwords are securely hashed and stored in the database using bcrypt.
+- **User Registration:** Users can sign up for an account by providing their email and password.
 
-MongoDB Integration: Data is stored in a MongoDB database, providing a scalable and flexible solution.
+- **User Authentication:** Secure authentication using JSON Web Tokens (JWT) to protect routes and ensure user identity.
 
-React Frontend: The frontend is built using React.js, providing a dynamic and responsive user interface.
+- **Password Encryption:** User passwords are securely hashed and stored in the database using bcrypt.
 
-Protected Routes: Certain routes are protected and require user authentication to access.
+- **MongoDB Integration:** Data is stored in a MongoDB database, providing a scalable and flexible solution.
 
-Installation
-Prerequisites
-Node.js and npm installed on your machine.
-MongoDB database (either locally or using a cloud service like MongoDB Atlas).
-Steps
-Clone the repository:
+- **React Frontend:** The frontend is built using React.js, providing a dynamic and responsive user interface.
 
-bash
-Copy code
-git clone https://github.com/Nitz2611/Mern-login-signup.git
-cd Mern-login-signup
-Install server dependencies:
+- **Protected Routes:** Certain routes are protected and require user authentication to access.
+
+## Installation
+
+### Prerequisites
+
+- Node.js and npm installed on your machine.
+- MongoDB database (either locally or using a cloud service like MongoDB Atlas).
+
+### Steps
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Nitz2611/Mern-login-signup.git
+   cd Mern-login-signup
+
 
 bash
 Copy code
