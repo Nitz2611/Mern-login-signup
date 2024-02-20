@@ -1,10 +1,11 @@
 import express from 'express'
-import mongoose from "mongoose";
+
 import cors from 'cors'
 import EmployeeModel from './models/Employee.js'
-// import dotenv from 'dotenv'
+import dotenv from 'dotenv'
+import connectDB from './config/db.js';
 
-// dotenv.config();
+dotenv.config();
 
 const app = express()
 app.use(express.json())
@@ -12,18 +13,9 @@ app.use(cors())
 
 
 //getting connected with mongodb
-const connectDB = async () => {
-    try {
-        const conn = await mongoose.connect("mongodb+srv://sharmanitish183:db123@cluster0.grgtlks.mongodb.net/loginSignup")
-        console.log(`Connected to Mongodb Database`);
-    } catch (error) {
-        console.log(`Error in Mongdb ${error}`);
-    }
-};
-
 connectDB();
 
-app.post('/login', (req, res) => {
+app.post('/', (req, res) => {
     const { email, password } = req.body;
     EmployeeModel.findOne({ email: email })
         .then(user => {
@@ -50,6 +42,8 @@ app.post('/register', (req, res) => {
 })
 
 //starting server
-app.listen(3001, () => {
-    console.log("Server is running..")
+const PORT = process.env.PORT || 3001
+
+app.listen(PORT, () => {
+    console.log(`Server is running ${PORT} `)
 })
