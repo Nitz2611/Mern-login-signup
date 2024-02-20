@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 //creating schema means creating elements and defining types in database collection
 
@@ -10,4 +10,6 @@ const EmployeeSchema = new mongoose.Schema({
 
 //creating model of collection
 const EmployeeModel = mongoose.model("employees", EmployeeSchema);
-module.exports = EmployeeModel
+
+
+export default EmployeeModel 
