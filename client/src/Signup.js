@@ -19,7 +19,7 @@ function Signup() {
         const res = await axios.post('http://localhost:3001/api/register', { name, email, password })
         if (res.data.success) {
             toast.success(res.data.message)
-            navigate('/login');
+            navigate('/');
         } else {
             toast.error(res.data.message)
         }
