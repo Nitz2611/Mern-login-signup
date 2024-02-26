@@ -2,25 +2,27 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify'
 
 function Signup() {
 
     //setting variables
-    const [name, setName] = useState()
-    const [email, setEmail] = useState()
-    const [password, setPassword] = useState()
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
     const navigate = useNavigate()
 
 
     //submit handling function
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        axios.post('http://localhost:3001/register', { name, email, password })
-            .then(result => {
-                console.log(result)
-                navigate('/')
-            })
-            .catch(err => console.log(err))
+        const res = await axios.post('http://localhost:3001/api/register', { name, email, password })
+        if (res.data.success) {
+            toast.success(res.data.message)
+            navigate('/login');
+        } else {
+            toast.error(res.data.message)
+        }
     }
 
     return (

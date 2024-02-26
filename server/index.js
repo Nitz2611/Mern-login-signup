@@ -17,7 +17,7 @@ app.use(cors())
 connectDB();
 
 //routes
-app.use('/', authRoutes);
+app.use('/api', authRoutes);
 
 //starting server
 const PORT = process.env.PORT || 3001

@@ -3,25 +3,24 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify'
 
 function Login() {
 
 
-    const [email, setEmail] = useState()
-    const [password, setPassword] = useState()
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
     const navigate = useNavigate()
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        axios.post('http://localhost:3001/', { email, password })
-            .then(result => {
-                console.log(result)
-                if (result.data === "Success") {
-
-                    navigate('/home')
-                }
-            })
-            .catch(err => console.log(err))
+        const res = await axios.post('http://localhost:3001/api/login', { email, password })
+        if (res.data.success) {
+            toast.success(res.data.message)
+            navigate('/home');
+        } else {
+            toast.error(res.data.message)
+        }
     }
 
     return (
@@ -36,6 +35,7 @@ function Login() {
                         </label>
                         <input type="email"
                             placeholder="Enter Email"
+                            value={email}
                             autoComplete="off"
                             name="email"
                             className="form-control rounded-0"
@@ -48,6 +48,7 @@ function Login() {
                         </label>
                         <input type="password"
                             placeholder="Enter Password"
+                            value={password}
                             autoComplete="off"
                             name="password"
                             className="form-control rounded-0"

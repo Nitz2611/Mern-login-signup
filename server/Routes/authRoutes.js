@@ -8,7 +8,7 @@ const router = express.Router()
 
 //routing 
 //LOGIN || METHOD POST
-router.post('/', loginController)
+router.post('/login', loginController)
 
 //post method will send data to database and save it
 router.post('/register', registerController)

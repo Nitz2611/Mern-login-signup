@@ -52,7 +52,7 @@ export const registerController = async (req, res) => {
 }
 
 //POST LOGIN
-export const loginController = async (res, req) => {
+export const loginController = async (req, res) => {
     try {
         const { email, password } = req.body;
 
